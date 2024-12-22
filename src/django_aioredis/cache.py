@@ -2,6 +2,7 @@ import aioredis
 from django.core.cache.backends.base import BaseCache, DEFAULT_TIMEOUT
 from asgiref.sync import async_to_sync
 
+
 class AsyncRedisCache(BaseCache):
     def __init__(self, location, params):
         super().__init__(params)
@@ -13,7 +14,8 @@ class AsyncRedisCache(BaseCache):
             self._client = await aioredis.from_url(self._redis_url)
         return self._client
 
-    async def aget(self, key,default=None,version=None):
+    # aget and aset to get and set cache values in async environment
+    async def aget(self, key, default=None, version=None):
         client = await self.get_client()
         value = await client.get(key)
         return value.decode('utf-8') if value else None
@@ -22,9 +24,9 @@ class AsyncRedisCache(BaseCache):
         client = await self.get_client()
         await client.set(key, value, ex=timeout)
 
-    #
+    # get and set to get and set cache values in sync environment
     def get(self, key, default=None, version=None):
-        return async_to_sync(self.aget)(key) or default
+        return async_to_sync(self.aget)(key, default, version)
 
     def set(self, key, value, timeout=DEFAULT_TIMEOUT, version=None):
-        async_to_sync(self.aset)(key, value, timeout)
+        async_to_sync(self.aset)(key, value, timeout, version)

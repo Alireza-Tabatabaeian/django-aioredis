@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-aioredis"
+version = "0.0.1"
+authors = [
+    { name = "Alireza Tabatabaeian", email = "alireza.tabatabaeian@gmail.com" },
+]
+description = "This package provides a custom cache backend for Django that integrates with the asynchronous capabilities of the aioredis library."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    'Environment :: Web Environment',
+    'Framework :: Django',
+    'Intended Audience :: Developers',
+]
+dependencies = [
+    "django",
+    "aioredis",
+]
+license = { file = "LICENSE" }
+keywords = ["django", "redis", "cache", "async", "aioredis"]
+
+[project.urls]
+Homepage = "https://github.com/Alireza-Tabatabaeian/django-aioredis"
+Issues = "https://github.com/Alireza-Tabatabaeian/django-aioredis/issues"

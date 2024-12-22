@@ -64,11 +64,14 @@ def get_profile(pid: int) -> Profile | None:
 
 # If you have used it along default cache then:
 from django.core.cache import caches
-cache = caches["default"]
+sync_cache = caches["default"]
 async_cache = caches["async-cache"]
 
-# The only modification needed is in object name so in case of async functions you can use async_cache.aget or async_cache.aset and for reqular functions simply obey the oldschool approach
-
+### 
+# The only modification needed is in object name
+# so in case of async functions you can use async_cache.aget or async_cache.aset
+# and for regular functions simply obey the old school approach with sync_cache
+###
 ```
 
 ## Contributing
