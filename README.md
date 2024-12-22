@@ -3,7 +3,7 @@ This package provides a custom cache backend for Django that integrates with the
 
 ## Installation
 
-redis-py requires a running Redis server. See [Redis's quickstart](https://redis.io/docs/latest/develop/get-started/) for installation instructions.
+django-aioredis requires a running Redis server. See [Redis's quickstart](https://redis.io/docs/latest/develop/get-started/) for installation instructions.
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
