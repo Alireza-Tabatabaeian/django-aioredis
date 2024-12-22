@@ -18,7 +18,7 @@ You will need to add below modifications to project's settings.py
 # you can set this backend as default cache backend
 CACHES = {
     'default': {
-        'BACKEND': 'myapp.cache.AsyncRedisCache',
+        'BACKEND': 'django_aioredis.cache.AsyncRedisCache',
         'LOCATION': 'redis://localhost:6379/0',
     }
 }
@@ -31,7 +31,7 @@ CACHES = {
         "LOCATION": REDIS_URL,
     },
     "async-cache": {
-        'BACKEND': 'myapp.cache.AsyncRedisCache',
+        'BACKEND': 'django_aioredis.cache.AsyncRedisCache',
         'LOCATION': REDIS_URL,
     }
 }
